@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alova Houston helps families review hospital bill options and write a financial assistance request. It does not decide eligibility.">
+  <meta name="theme-color" content="#17365F">
+  <title>Alova Houston</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-bar">
+      <a class="brand" href="#home" data-nav="home">
+        <svg class="logo-svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M5 22.5V13M27 22.5V13"></path>
+          <path d="M5 14.5c4.2-6.2 17.8-6.2 22 0"></path>
+          <path d="M16 14.5v6"></path>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Alova Houston</span>
+          <span class="brand-tag" data-i18n="brand.tag">Help with hospital bills</span>
+        </span>
+      </a>
+
+      <div class="lang-toggle" role="group" data-i18n-aria="lang.group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">Español</button>
+      </div>
+    </div>
+
+    <nav class="site-nav" data-i18n-aria="nav.label" aria-label="Main">
+      <button type="button" class="nav-btn is-current" data-nav="home" aria-current="page" data-i18n="nav.home">Home</button>
+      <button type="button" class="nav-btn" data-nav="form" data-i18n="nav.form">Your Information</button>
+      <button type="button" class="nav-btn" data-nav="results" id="nav-results" disabled data-i18n="nav.results">Results</button>
+      <button type="button" class="nav-btn" data-nav="letter" id="nav-letter" disabled data-i18n="nav.letter">Letter</button>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- Screen 1: Home -->
+    <section id="screen-home" class="screen" aria-labelledby="home-title">
+      <div class="wrap">
+        <div class="hero">
+          <p class="eyebrow" data-i18n="home.eyebrow">For families in Houston</p>
+          <h1 id="home-title" tabindex="-1" data-i18n="home.headline">Your medical bills. Your options.</h1>
+          <p class="lede" data-i18n="home.support">Find out whether you may qualify for hospital financial assistance, discounts, or a more affordable payment plan.</p>
+          <button type="button" class="btn btn-primary" data-nav="form" data-i18n="home.cta">Check My Options</button>
+          <p class="reassure" data-i18n="home.reassure">Free to use. No account required. Available in English and Spanish.</p>
+        </div>
+
+        <ul class="feature-grid">
+          <li class="card feature-card">
+            <span class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9"></path></svg>
+            </span>
+            <h2 data-i18n="home.feature1Title">Understand Your Options</h2>
+            <p data-i18n="home.feature1Text">Explore potential medical bill assistance.</p>
+          </li>
+          <li class="card feature-card">
+            <span class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10z"></path></svg>
+            </span>
+            <h2 data-i18n="home.feature2Title">Find Financial Help</h2>
+            <p data-i18n="home.feature2Text">Learn what to ask your hospital.</p>
+          </li>
+          <li class="card feature-card">
+            <span class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 3.5h7l5 5V20.5H7z"></path><path d="M14 3.5v5h5M9 13h6M9 17h6"></path></svg>
+            </span>
+            <h2 data-i18n="home.feature3Title">Get a Ready-to-Use Letter</h2>
+            <p data-i18n="home.feature3Text">Generate a personalized request for financial assistance.</p>
+          </li>
+        </ul>
+
+        <section class="how" aria-labelledby="how-title">
+          <h2 id="how-title" data-i18n="home.howTitle">How it works</h2>
+          <ol class="steps">
+            <li data-i18n="home.step1">Tell us about your household.</li>
+            <li data-i18n="home.step2">Review possible assistance options.</li>
+            <li data-i18n="home.step3">Generate a letter to your hospital.</li>
+          </ol>
+        </section>
+      </div>
+    </section>
+
+    <!-- Screen 2: Family information -->
+    <section id="screen-form" class="screen" hidden aria-labelledby="form-title">
+      <div class="wrap narrow">
+        <h1 id="form-title" tabindex="-1" data-i18n="form.title">Tell us about your household</h1>
+        <p class="lede" data-i18n="form.intro">Use your best estimates. Hospitals do not share one set of rules, and this page does not decide whether you qualify.</p>
+        <p class="privacy-note" data-i18n="form.privacy">Do not enter a Social Security number, medical record number, diagnosis, or account number. Your answers stay on this device until you close the page. Nothing is sent to a hospital. This is not legal, financial, or medical advice, and it is not a HIPAA service.</p>
+
+        <form id="family-form" novalidate autocomplete="off">
+          <p class="required-note" data-i18n="form.requiredNote">Fields with * are required.</p>
+          <div id="form-error-summary" class="error-summary" hidden role="alert"></div>
+
+          <fieldset class="card form-section">
+            <legend data-i18n="form.hospital.legend">Hospital information</legend>
+
+            <div class="field">
+              <label for="hospital" data-i18n="form.hospital.label">Hospital or health system *</label>
+              <p class="help" id="hospital-help" data-i18n="form.hospital.help">Each hospital writes its own financial assistance rules. This list does not mean the rules are the same.</p>
+              <select id="hospital" name="hospital" aria-describedby="hospital-help hospital-error">
+                <option value="" data-i18n="form.hospital.placeholder">Select a hospital</option>
+                <option value="houstonMethodist" data-i18n="form.hospital.houstonMethodist">Houston Methodist</option>
+                <option value="memorialHermann" data-i18n="form.hospital.memorialHermann">Memorial Hermann</option>
+                <option value="harrisHealth" data-i18n="form.hospital.harrisHealth">Harris Health System</option>
+                <option value="texasChildrens" data-i18n="form.hospital.texasChildrens">Texas Children's Hospital</option>
+                <option value="hcaHouston" data-i18n="form.hospital.hcaHouston">HCA Houston Healthcare</option>
+                <option value="other" data-i18n="form.hospital.other">Other Houston-area hospital</option>
+              </select>
+              <p class="error" id="hospital-error" hidden></p>
+            </div>
+
+            <div class="field" id="other-hospital-field" hidden>
+              <label for="other-hospital" data-i18n="form.other.label">Hospital name *</label>
+              <p class="help" id="other-help" data-i18n="form.other.help">This name is used in your results and your letter.</p>
+              <input id="other-hospital" name="otherHospital" type="text" maxlength="120" autocomplete="organization" aria-describedby="other-help other-error">
+              <p class="error" id="other-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="card form-section">
+            <legend data-i18n="form.household.legend">Household information</legend>
+
+            <div class="field">
+              <label for="household-size" data-i18n="form.household.size">Household size *</label>
+              <p class="help" id="household-help" data-i18n="form.household.sizeHelp">Count the people who live together and share income and expenses. If there are more than 8 people, choose 8+.</p>
+              <select id="household-size" name="householdSize" aria-describedby="household-help household-error">
+                <option value="" data-i18n="form.household.placeholder">Select household size</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8plus" data-i18n="form.household.eightPlus">8 or more</option>
+              </select>
+              <p class="error" id="household-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="income" data-i18n="form.income.label">Total annual household income (US dollars) *</label>
+              <p class="help" id="income-help" data-i18n="form.income.help">A yearly estimate before taxes is fine. Include income for the people in the household.</p>
+              <div class="money">
+                <span aria-hidden="true">$</span>
+                <input id="income" name="income" type="text" inputmode="decimal" autocomplete="off" maxlength="14" aria-describedby="income-help income-error">
+              </div>
+              <p class="error" id="income-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="card form-section">
+            <legend data-i18n="form.bill.legend">Medical bill information</legend>
+
+            <div class="field">
+              <label for="bill-amount" data-i18n="form.bill.amount">Approximate medical bill (US dollars) *</label>
+              <p class="help" id="bill-help" data-i18n="form.bill.amountHelp">The amount still owed, or your best estimate if the bill has not arrived.</p>
+              <div class="money">
+                <span aria-hidden="true">$</span>
+                <input id="bill-amount" name="billAmount" type="text" inputmode="decimal" autocomplete="off" maxlength="14" aria-describedby="bill-help bill-error">
+              </div>
+              <p class="error" id="bill-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="insurance" data-i18n="form.insurance.label">Insurance status *</label>
+              <p class="help" id="insurance-help" data-i18n="form.insurance.help">Choose the option that best matches the patient. If you are not sure, choose Unsure.</p>
+              <select id="insurance" name="insurance" aria-describedby="insurance-help insurance-error">
+                <option value="" data-i18n="form.insurance.placeholder">Select insurance status</option>
+                <option value="uninsured" data-i18n="form.insurance.uninsured">Uninsured</option>
+                <option value="insured" data-i18n="form.insurance.insured">Insured</option>
+                <option value="medicaid" data-i18n="form.insurance.medicaid">Medicaid/CHIP</option>
+                <option value="medicare" data-i18n="form.insurance.medicare">Medicare</option>
+                <option value="unsure" data-i18n="form.insurance.unsure">Unsure</option>
+              </select>
+              <p class="error" id="insurance-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="bill-status" data-i18n="form.billStatus.label">Bill status *</label>
+              <p class="help" id="bill-status-help" data-i18n="form.billStatus.help">This helps word your letter. It does not decide whether the hospital will help.</p>
+              <select id="bill-status" name="billStatus" aria-describedby="bill-status-help bill-status-error">
+                <option value="" data-i18n="form.billStatus.placeholder">Select bill status</option>
+                <option value="justReceived" data-i18n="form.billStatus.justReceived">Just received the bill</option>
+                <option value="paying" data-i18n="form.billStatus.paying">Already making payments</option>
+                <option value="collections" data-i18n="form.billStatus.collections">Sent to collections</option>
+                <option value="notYetBilled" data-i18n="form.billStatus.notYetBilled">Care planned but not yet billed</option>
+              </select>
+              <p class="error" id="bill-status-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="card form-section">
+            <legend data-i18n="form.letter.legend">Letter information</legend>
+
+            <div class="field">
+              <label for="patient-name" data-i18n="form.name.label">Name for the letter (optional)</label>
+              <p class="help" id="name-help" data-i18n="form.name.help">Used only to sign the letter on this device. Leave it blank if you prefer.</p>
+              <input id="patient-name" name="patientName" type="text" maxlength="80" autocomplete="name" aria-describedby="name-help">
+            </div>
+
+            <div class="field">
+              <label for="letter-lang" data-i18n="form.letterLang.label">Preferred letter language</label>
+              <p class="help" id="letter-lang-help" data-i18n="form.letterLang.help">The letter uses this language even if the rest of the site is in the other language.</p>
+              <select id="letter-lang" name="letterLang" aria-describedby="letter-lang-help">
+                <option value="en" data-i18n="form.letterLang.en">English</option>
+                <option value="es" data-i18n="form.letterLang.es">Spanish</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="form.submit">See my options</button>
+            <p class="help" data-i18n="form.submitHelp">You can come back and change these answers. They are not saved after you close the page.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Screen 3: Results -->
+    <section id="screen-results" class="screen" hidden aria-labelledby="results-title">
+      <div class="wrap narrow">
+        <h1 id="results-title" tabindex="-1" data-i18n="results.title">Possible assistance options</h1>
+        <p class="lede" data-i18n="results.intro">These notes explain what the hospital has published and what you can ask. They are not a decision about your account.</p>
+        <div id="results-root"></div>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-generate" data-i18n="results.generate">Generate My Hospital Letter</button>
+          <button type="button" class="btn btn-secondary" id="btn-edit" data-i18n="results.edit">Edit My Answers</button>
+          <button type="button" class="btn btn-quiet" id="btn-start-over" data-i18n="results.startOver">Start Over</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4: Letter -->
+    <section id="screen-letter" class="screen" hidden aria-labelledby="letter-title">
+      <div class="wrap narrow">
+        <h1 id="letter-title" tabindex="-1" data-i18n="letter.title">Your hospital letter</h1>
+        <p class="lede" data-i18n="letter.intro">Read the letter and change anything that is not right. Then copy it and send it yourself.</p>
+        <p class="callout" data-i18n="letter.notSent">This website does not send the letter to the hospital.</p>
+        <p id="letter-lang-note" class="help"></p>
+        <p id="letter-stale" class="callout callout-warn" role="status" hidden></p>
+
+        <div class="field">
+          <label for="letter-text" data-i18n="letter.editLabel">Letter text</label>
+          <textarea id="letter-text" rows="18" spellcheck="true"></textarea>
+        </div>
+
+        <p id="letter-copy-status" class="copy-status" role="status" aria-live="polite"></p>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-copy" data-i18n="letter.copy">Copy Letter</button>
+          <button type="button" class="btn btn-secondary" id="btn-refresh" data-i18n="letter.refresh">Refresh Letter</button>
+          <button type="button" class="btn btn-quiet" id="btn-back" data-i18n="letter.back">Back to Results</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p data-i18n="footer.note">Alova Houston is a free informational tool for families in the Houston area. It does not decide eligibility, give legal or medical advice, or send your information to a hospital. Do not enter Social Security numbers, medical record numbers, or diagnoses.</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">Alova Houston needs JavaScript to run this screening on your device. No account is required.</p>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
